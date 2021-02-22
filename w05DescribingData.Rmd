@@ -1,0 +1,354 @@
+---
+title: "DESCRIBING DATA"
+subtitle: "Frequencies and Summary Statistics"
+author: "Austin Hart"
+institute: "American University"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, rladies, rladies-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  message=FALSE, warning=FALSE, eval = TRUE, echo = FALSE, 
+  fig.align = 'center', dev='png', dpi = 300
+)
+```
+
+```{r results='hide'}
+library(tidyverse)
+library(magrittr)
+setwd("C:\\Users\\ahart\\Dropbox\\SIS 600 AH\\2021S 600\\content\\w05 describing data")
+load('DCPS testing.rData')
+```
+
+class: inverse, center, middle
+
+# WHAT IS A DATA SET?
+
+
+---
+# Basic data set/frame
+
+- **ROW**: Record for each *case/observation*  
+  
+- **COLUMN**: Vector of a single *variable*  
+  
+- **ELEMENT**: A particular case's value on the variable  
+&zwnj; 
+
+--
+
+&zwnj; 
+
+
+```{r dframe}
+df = tribble(
+  ~Name, ~FavCola, ~Age, ~RatingNewCola,
+  "Irma", "Coke", 25, "1. Very Good",
+  "Sal", "Pepsi", 22, "3. Bad",
+  "Karmen", "Mr. Pibb", 26, "2. Good",
+  "Jayden", "Coke", 23, "2. Good"
+)
+
+knitr::kable(df, format = 'pipe', cap = "A sample data frame", padding = 3)
+```
+
+
+---
+# DCPS PARCC Data
+
+Partnership for Assessment and Readiness for College and Career Assessment 
+
+- Assessment data for 108 DC public schools, 2017`-`2018  
+
+- Records math and language proficiency (% at grade level)  
+&zwnj; 
+
+--
+
+&zwnj; 
+
+
+```{r show,}
+dcps %<>%
+  mutate(ProfLang = round(ProfLang,1)) %>%
+  select(SchName, SchType,ProfLang)
+
+  knitr::kable(dcps[1:5,], format = "pipe", cap = "The PARCC Data", padding = 2)
+```
+
+
+---
+# What kind of variables are those?
+
+- **NOMINAL VARIABLE** Qualitative indicator of membership in distinct categories or groups. Captures differences in kind (e.g. `FavCola`: "Coke", "Pepsi", "Mr. Pibb")
+
+> `SchType`: Nominal variable identifying school as Elementary, Middle, or High School.
+
+- **BINARY VARIABLE** Special case of nominal variable with only two levels or categories (e.g. `SISGrad`: "Yes" or "No")
+
+- **NUMERIC** A quantitative record of amount or degree. Has equal`-`unit differences. (e.g. `AgeYrs`, `GDPpc`)
+
+> `ProfLang`: Numeric variable indicating percentage of students (0-100) reading at or above grade-level.
+
+
+---
+class: inverse, center, middle
+
+# DESCRIBING YOUR DATA
+
+
+---
+class: center, middle
+
+# Nominal Variables
+Tabulating frequencies
+
+
+---
+# Frequencies
+
+- **Raw frequency** $(n_k)$: Number of times each score/value of the variable appears in the data.
+&zwnj;  
+
+- **Relative frequency** $(\%)$: Raw frequency divided by total number of observations in the data $(N)$
+$$n_k/N$$
+
+- **Modal category**: The score/value appearing most frequently in the data.
+
+
+---
+# Presenting the analysis
+
+### DCPS schools by level, 2017`-`2018
+.pull-left[
+```{r tabs}
+  tab = 
+    dcps %>%
+    count(SchType) %>%
+    transmute(
+      `School Type` = SchType,
+      `Freq (n)` = n,
+      `(%)` = round(100 * `Freq (n)`/sum(`Freq (n)`),digits = 1)
+    )
+
+  knitr::kable(tab, format = "pipe", padding = 4, cap = "FREQUENCY TABLE")
+```
+]
+
+.pull-right[
+```{r type, fig.width=5, fig.asp=1}
+  barplot(`(%)` ~ `School Type`, data = tab,
+          col = rgb(0.8,0.1,0.1,0.6),
+          main = "BAR CHART", ylab = 'Freq (%)',
+          cex.axis=1.5, cex.names=1.5, cex.lab=1.5, cex.main = 2.2)
+```
+]
+
+---
+class: center, middle
+
+# Summarizing numeric data
+Classic summary statistics
+
+
+---
+# The ideal case
+
+### For "normal" distribution, calculate:
+
+- **Mean**, $\bar{y}$: simple average of recorded scores on $y$; classic measure of central tendency.
+$$\bar{y}=\frac{\sum{y_i}}{n}$$
+&zwnj;  
+
+- **Standard Deviation**, $\sigma$: measure of dispersion; captures average distance between a given case and the mean.
+$$\sigma = \sqrt{\frac{\sum{(y_i-\bar{y})^2}}{n-1}}$$
+
+
+---
+# Describing the Distribution
+
+
+Across 108 DCPS schools, an average of `r mean(dcps$ProfLang) %>% round(digits = 1)` percent of students read at grade level. The standard deviation is `r sd(dcps$ProfLang) %>% round(digits = 1)`.  
+
+
+```{r d1, fig.width = 9, fig.asp = .62}
+hist(dcps$ProfLang, 
+     main = "Language Proficiency, DCPS 2017", ylab = "Frequency", xlab = "Students at Grade Level (%)",
+     col = 'cornflowerblue', cex.lab=1.5, cex.axis=1.5, cex.main=1.8, cex.sub=1.5)
+```
+
+
+---
+class: center, middle
+
+# Rank statistics
+
+For SKEWED distributions.
+
+
+---
+# Median and IQR
+
+### For skewed distribution:
+
+- **MEDIAN**, $Q_2$: Midpoint of a frequency distribution; the score at the 50th percentile (second quartile).  
+&zwnj;  
+
+- **Interquartile Range**, $IQR$:** Measure of dispersion; equal to the difference between upper and lower quartiles. 
+$$IQR=Q3-Q1$$
+
+---
+# Describing the distribution
+
+Across 108 DCPS schools, an average of `r median(dcps$ProfLang) %>% round(digits = 1)` percent of students read at grade level. The standard deviation is `r IQR(dcps$ProfLang) %>% round(digits = 1)`.
+
+
+```{r d2, fig.width = 9, fig.asp = .5}
+
+boxplot(dcps$ProfLang, horizontal = TRUE,
+     main = "Language Proficiency, DCPS 2017",
+     xlab = "Students at Grade Level (%)",
+     ylim = c(0,100), col="#69b3a2",
+     cex.lab=1.4, cex.axis=1.4, cex.sub=1.4,cex.main=1.8)
+
+```
+
+---
+class: inverse, center, middle
+
+# WHAT IS SKEW?
+And what to do about it.
+
+
+---
+# Highlight the problem
+
+
+### Which captures the true center?
+
+.pull-left[
+
+- MEAN: `r mean(dcps$ProfLang) %>% round(1)`
+
+  
+```{r d4, fig.width = 5, fig.asp = .65}
+hist(dcps$ProfLang, 
+     main = "Language Proficiency, DCPS 2017",
+     xlab = "Students at Grade Level (%)",
+     col = 'cornflowerblue', cex.lab=1.4, cex.axis=1.4, cex.sub=1.4)
+```
+
+]
+
+.pull-right[
+
+- MEDIAN: `r median(dcps$ProfLang) %>% round(1)`
+  
+  
+```{r d3, fig.width = 5, fig.asp = .65}
+
+boxplot(dcps$ProfLang, horizontal = TRUE,
+        main = "Language Proficiency, DCPS 2017",
+        xlab = "Students at Grade Level (%)",
+        ylim = c(0,100), col="#69b3a2",
+        cex.lab=1.4, cex.axis=1.4, cex.sub=1.4)
+
+```
+]
+
+
+---
+# What is a skewed distribution?
+
+- **SKEWNESS**: Measure of a distribution's asymmetry, reflected in the divergence of the mean from the median.
+
+```{r skews, out.width = '85%'}
+knitr::include_graphics("skews.jpg")
+```
+
+- **IMPORTANCE**: For skewed distribution, the mean is a biased measure of central tendency.
+
+
+---
+# Outliers and skewness
+
+```{r skewmeme, out.width = '85%'}
+knitr::include_graphics("meanoutlier.jpg")
+```
+
+---
+# Outliers and skewness
+
+- **Sensitive mean**
+  - Full sample mean: `r mean(dcps$ProfLang) %>% round(1)`
+  - Without outliers: `r dcps %>% filter(ProfLang < 81) %$% mean(ProfLang) %>% round(1)`
+
+- **Steady median**
+  - Full sample median: `r median(dcps$ProfLang) %>% round(1)`
+  - Without outliers:`r dcps %>% filter(ProfLang < 81) %$% median(ProfLang) %>% round(1)`
+
+```{r skewlook, fig.width=9, fig.asp=.4}
+boxplot(dcps$ProfLang, horizontal = TRUE,
+        main = "Language Proficiency, DCPS 2017",
+        xlab = "Students at Grade Level (%)", 
+        ylim = c(0,100), col="#69b3a2",
+        cex.lab=1.4, cex.axis=1.4, cex.sub=1.4,cex.main=1.8)
+abline(v = 29.74, col = 'red')
+```
+
+
+---
+# Overview
+
+- Nominal variables
+  - Modal category and freq
+  - Relative frequency table or bar chart
+  
+- Numeric variables (skewed/safe)
+  - Report median, IQR
+  - Boxplot
+
+- Numeric variable (normal)
+  - Mean, standard deviation
+  - Histogram
+
+
+---
+class: inverse, center, middle
+
+# Computing in R/RStudio
+
+Preparing for next week
+
+
+---
+class: inverse
+
+# Be ready for R
+
+### Following the R Survival Guide:
+
+- Install R & RStudio on your computer
+
+- Read Survival Guide, Ch 1-4, 5.1-2, and 6.1
+
+- Follow along and replicate code
+
+
+---
+class: inverse, center, middle
+
+# QUIZ: R skills builder
+
+Due Monday, March 15.
+
+Available soon on Blackboard.
