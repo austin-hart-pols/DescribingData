@@ -25,7 +25,6 @@ knitr::opts_chunk$set(
 ```{r results='hide'}
 library(tidyverse)
 library(magrittr)
-setwd("C:\\Users\\ahart\\Dropbox\\SIS 600 AH\\2021S 600\\content\\w05 describing data")
 load('DCPS testing.rData')
 ```
 
@@ -116,11 +115,11 @@ Tabulating frequencies
 ---
 # Frequencies
 
-- **Raw frequency** $(n_k)$: Number of times each score/value of the variable appears in the data.
+- **Raw frequency** $(n)$: Number of times each score/category of the variable appears in the data.
 &zwnj;  
 
 - **Relative frequency** $(\%)$: Raw frequency divided by total number of observations in the data $(N)$
-$$n_k/N$$
+$$n/N$$
 
 - **Modal category**: The score/value appearing most frequently in the data.
 
@@ -209,7 +208,7 @@ $$IQR=Q3-Q1$$
 ---
 # Describing the distribution
 
-Across 108 DCPS schools, an average of `r median(dcps$ProfLang) %>% round(digits = 1)` percent of students read at grade level. The standard deviation is `r IQR(dcps$ProfLang) %>% round(digits = 1)`.
+Across 108 DCPS schools, the median result is that `r median(dcps$ProfLang) %>% round(digits = 1)` percent of students read at grade level. The IQR is `r IQR(dcps$ProfLang) %>% round(digits = 1)`.
 
 
 ```{r d2, fig.width = 9, fig.asp = .5}
