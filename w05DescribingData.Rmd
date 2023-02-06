@@ -18,7 +18,7 @@ output:
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
   message=FALSE, warning=FALSE, eval = TRUE, echo = FALSE, 
-  fig.align = 'center', dev='png', dpi = 300
+  fig.align = 'center', dev='svglite', dpi = 300
 )
 ```
 
@@ -36,7 +36,7 @@ class: inverse, center, middle
 ---
 # Basic data set/frame
 
-- **ROW**: Record for each *case/observation*  
+- **ROW**: Record for each *case, or unit of observation*  
   
 - **COLUMN**: Vector of a single *variable*  
   
@@ -92,7 +92,6 @@ dcps %<>%
 
 > `SchType`: Nominal variable identifying school as Elementary, Middle, or High School.
 
-- **BINARY VARIABLE** Special case of nominal variable with only two levels or categories (e.g. `SISGrad`: "Yes" or "No")
 
 - **NUMERIC** A quantitative record of amount or degree. Has equal`-`unit differences. (e.g. `AgeYrs`, `GDPpc`)
 
@@ -312,7 +311,7 @@ abline(v = 29.74, col = 'red')
   - Modal category and freq
   - Relative frequency table or bar chart
   
-- Numeric variables (skewed/safe)
+- Numeric variables (skewed)
   - Report median, IQR
   - Boxplot
 
@@ -321,33 +320,6 @@ abline(v = 29.74, col = 'red')
   - Histogram
 
 
----
-class: inverse, center, middle
-
-# Computing in R/RStudio
-
-Preparing for next week
 
 
----
-class: inverse
 
-# Be ready for R
-
-### Following the R Survival Guide:
-
-- Install R & RStudio on your computer
-
-- Read Survival Guide, Ch 1-4, 5.1-2, and 6.1
-
-- Follow along and replicate code
-
-
----
-class: inverse, center, middle
-
-# QUIZ: R skills builder
-
-Due Monday, March 15.
-
-Available soon on Blackboard.

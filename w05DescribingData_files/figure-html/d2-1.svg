@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='648.00pt' height='324.00pt' viewBox='0 0 648.00 324.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw2NDguMDB8MC4wMHwzMjQuMDA='>
+    <rect x='0.00' y='0.00' width='648.00' height='324.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw2NDguMDB8MC4wMHwzMjQuMDA=)'>
+</g>
+<defs>
+  <clipPath id='cpNTkuMDR8NjE3Ljc2fDU5LjA0fDI1MC41Ng=='>
+    <rect x='59.04' y='59.04' width='558.72' height='191.52' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTkuMDR8NjE3Ljc2fDU5LjA0fDI1MC41Ng==)'>
+<polygon points='143.11,190.27 143.11,119.33 290.03,119.33 290.03,190.27 ' style='stroke-width: 0.75; stroke: none; fill: #69B3A2;' />
+<line x1='178.80' y1='190.27' x2='178.80' y2='119.33' style='stroke-width: 2.25; stroke-linecap: butt;' />
+<line x1='79.73' y1='154.80' x2='143.11' y2='154.80' style='stroke-width: 0.75; stroke-dasharray: 4.00,4.00;' />
+<line x1='494.12' y1='154.80' x2='290.03' y2='154.80' style='stroke-width: 0.75; stroke-dasharray: 4.00,4.00;' />
+<line x1='79.73' y1='172.53' x2='79.73' y2='137.07' style='stroke-width: 0.75;' />
+<line x1='494.12' y1='172.53' x2='494.12' y2='137.07' style='stroke-width: 0.75;' />
+<polygon points='143.11,190.27 143.11,119.33 290.03,119.33 290.03,190.27 ' style='stroke-width: 0.75;' />
+<circle cx='555.68' cy='154.80' r='2.70' style='stroke-width: 0.75;' />
+<circle cx='537.57' cy='154.80' r='2.70' style='stroke-width: 0.75;' />
+<circle cx='566.54' cy='154.80' r='2.70' style='stroke-width: 0.75;' />
+</g>
+<g clip-path='url(#cpMC4wMHw2NDguMDB8MC4wMHwzMjQuMDA=)'>
+<line x1='79.73' y1='250.56' x2='597.07' y2='250.56' style='stroke-width: 0.75;' />
+<line x1='79.73' y1='250.56' x2='79.73' y2='257.76' style='stroke-width: 0.75;' />
+<line x1='183.20' y1='250.56' x2='183.20' y2='257.76' style='stroke-width: 0.75;' />
+<line x1='286.67' y1='250.56' x2='286.67' y2='257.76' style='stroke-width: 0.75;' />
+<line x1='390.13' y1='250.56' x2='390.13' y2='257.76' style='stroke-width: 0.75;' />
+<line x1='493.60' y1='250.56' x2='493.60' y2='257.76' style='stroke-width: 0.75;' />
+<line x1='597.07' y1='250.56' x2='597.07' y2='257.76' style='stroke-width: 0.75;' />
+<text x='79.73' y='276.48' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='9.34px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='183.20' y='276.48' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='286.67' y='276.48' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='390.13' y='276.48' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='493.60' y='276.48' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>80</text>
+<text x='597.07' y='276.48' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='28.02px' lengthAdjust='spacingAndGlyphs'>100</text>
+<text x='338.40' y='37.29' text-anchor='middle' style='font-size: 21.60px; font-weight: bold; font-family: "Arial";' textLength='350.41px' lengthAdjust='spacingAndGlyphs'>Language Proficiency, DCPS 2017</text>
+<text x='338.40' y='305.28' text-anchor='middle' style='font-size: 16.80px; font-family: "Arial";' textLength='211.89px' lengthAdjust='spacingAndGlyphs'>Students at Grade Level (%)</text>
+<polygon points='59.04,250.56 617.76,250.56 617.76,59.04 59.04,59.04 ' style='stroke-width: 0.75;' />
+</g>
+</svg>
