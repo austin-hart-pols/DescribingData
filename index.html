@@ -49,7 +49,7 @@ class: inverse, center, middle
 - **ELEMENT**: A particular case's value on the variable  
 &amp;zwnj; 
 
---
+
 
 &amp;zwnj; 
 
@@ -75,7 +75,6 @@ Partnership for Assessment and Readiness for College and Career Assessment
 - Records math and language proficiency (% at grade level)  
 &amp;zwnj; 
 
---
 
 &amp;zwnj; 
 
@@ -121,11 +120,11 @@ Tabulating frequencies
 ---
 # Frequencies
 
-- **Raw frequency** `\((n)\)`: Number of times each score/category of the variable appears in the data.
+- **Raw frequency** `\((n_k)\)`: Number of times each score/category, `\(k\)` of the variable appears in the data.
 &amp;zwnj;  
 
 - **Relative frequency** `\((\%)\)`: Raw frequency divided by total number of observations in the data `\((N)\)`
-`$$n/N$$`
+`$$n_k/N * 100\%$$`
 
 - **Modal category**: The score/value appearing most frequently in the data.
 
@@ -161,12 +160,12 @@ Classic summary statistics
 
 ### For "normal" distribution, calculate:
 
-- **Mean**, `\(\bar{y}\)`: simple average of recorded scores on `\(y\)`; classic measure of central tendency.
-`$$\bar{y}=\frac{\sum{y_i}}{n}$$`
+- **Mean**, `\(Avg_n[Y_i]\)`: simple average of recorded scores on `\(Y\)`; classic measure of central tendency.
+`$$Avg_n[Y_i]=\frac{\sum{Y_i}}{n}$$`
 &amp;zwnj;  
 
-- **Standard Deviation**, `\(\sigma\)`: measure of dispersion; captures average distance between a given case and the mean.
-`$$\sigma = \sqrt{\frac{\sum{(y_i-\bar{y})^2}}{n-1}}$$`
+- **Standard Deviation**, `\(S(Y_i)\)`: measure of dispersion; captures average distance between a given case and the mean.
+`$$S(Y_i) = \sqrt{\frac{\sum{(Y_i-Avg_n[Y_i])^2}}{n-1}}$$`
 
 
 ---
@@ -192,11 +191,11 @@ For SKEWED distributions.
 
 ### For skewed distribution:
 
-- **MEDIAN**, `\(Q_2\)`: Midpoint of a frequency distribution; the score at the 50th percentile (second quartile).  
+- **MEDIAN**, `\(Q_2(Y_i)\)`: Midpoint of a frequency distribution; the score at the 50th percentile (second quartile).  
 &amp;zwnj;  
 
-- **Interquartile Range**, `\(IQR\)`:** Measure of dispersion; equal to the difference between upper and lower quartiles. 
-`$$IQR=Q3-Q1$$`
+- **Interquartile Range**, `\(IQR(Y_i)\)`:** Measure of dispersion; equal to the difference between upper and lower quartiles. 
+`$$IQR(Y_i)=Q_3(Y_i)-Q_1(Y_i)$$`
 
 ---
 # Describing the distribution
